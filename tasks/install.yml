@@ -1,0 +1,25 @@
+---
+
+- name: Install dependencies
+  apt:
+    pkg: '{{ item }}'
+    state: present
+  with_items: '{{ docker_dependencies }}'
+
+- name: Install gpg key
+  apt_key:
+    keyserver: '{{ docker_gpg_keyserver }}'
+    id: '{{ docker_gpg_id }}'
+    state: present
+
+- name: Add docker repository
+  apt_repository:
+    repo: '{{ docker_repository_url }}'
+    state: present
+    filename: docker
+
+- name: Install docker
+  apt:
+    pkg: '{{ docker_apt_package }}'
+    state: present
+
