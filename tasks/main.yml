@@ -3,6 +3,10 @@
   when: docker_install == true
   tags: ['docker-install']
 
+- include: compose-install.yml
+  when: docker_compose_install == true
+  tags: ['docker-compose-install']
+
 #- include: configure.yml
 #  when: docker_install == true
 #  tags: ['docker-configure']

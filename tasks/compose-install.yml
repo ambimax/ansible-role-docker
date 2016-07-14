@@ -1,0 +1,13 @@
+---
+
+- name: 'Install docker-compose'
+  shell:  'curl -L {{ docker_compose_url }} > {{ docker_compose_bin }}'
+  args:
+    creates: '{{ docker_compose_bin }}'
+
+- name: 'Make docker-compose executable'
+  file:
+    path: '{{ docker_compose_bin }}'
+    mode: '0755'
+    owner: 'root'
+    group: 'root'

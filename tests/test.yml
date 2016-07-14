@@ -2,5 +2,8 @@
 - hosts: all
   remote_user: root
 
+  vars:
+    docker_compose_install: true
+
   roles:
     - ansible-role-docker
