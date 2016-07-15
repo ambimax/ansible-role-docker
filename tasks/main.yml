@@ -7,6 +7,10 @@
   when: docker_compose_install == true
   tags: ['docker-compose-install']
 
+- include: machine-install.yml
+  when: docker_compose_install == true
+  tags: ['docker-machine-install']
+
 #- include: configure.yml
 #  when: docker_install == true
 #  tags: ['docker-configure']
