@@ -47,6 +47,20 @@ $ ansible-galaxy install tschifftner.docker
       roles:
         - { role: tschifftner.docker }
 
+### Install docker compose
+
+```
+docker_compose_install: true
+docker_compose_version: '1.8.0-rc2'
+```
+
+### Install docker machine
+
+```
+docker_machine_install: true
+docker_machine_version: 'v0.8.0-rc2'
+```
+
 ## Supported OS
 Ansible          | Debian Jessie    | Ubuntu 14.04
 :--------------: | :--------------: | :-------------:

@@ -4,6 +4,7 @@
   shell:  'curl -L {{ docker_compose_url }} > {{ docker_compose_bin }}'
   args:
     creates: '{{ docker_compose_bin }}'
+  tags: ['skip_ansible_lint']
 
 - name: 'Make docker-compose executable'
   file:
