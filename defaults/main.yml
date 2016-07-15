@@ -18,6 +18,6 @@ docker_compose_url: 'https://github.com/docker/compose/releases/download/{{ dock
 docker_compose_bin: '/usr/local/bin/docker-compose'
 
 docker_machine_install: false
-docker_machine_version: '1.8.0-rc2'
+docker_machine_version: 'v0.8.0-rc2'
 docker_machine_url: 'https://github.com/docker/machine/releases/download/{{ docker_machine_version }}/docker-machine-Linux-{{ ansible_architecture }}'
 docker_machine_bin: '/usr/local/bin/docker-machine'
