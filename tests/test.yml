@@ -4,6 +4,7 @@
 
   vars:
     docker_compose_install: true
+    docker_machine_install: true
 
   roles:
     - ansible-role-docker

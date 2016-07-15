@@ -51,6 +51,7 @@ script:
     || (echo 'awscli is not installed' && exit 1)
 
   - docker-compose --version
+  - docker-machine --version
 
 after_failure:
   - ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo
