@@ -27,9 +27,6 @@ script:
   # Run tests.
   - ${PWD}/tests/test.sh
 
-  # Make sure docker service is running
-  - ${DOCKER} systemctl --no-pager status docker | grep "running"
-
   # Check versions
   - ${DOCKER} docker --version
   - ${DOCKER} docker-compose --version
@@ -37,7 +34,6 @@ script:
 
 
 after_failure:
-  - ${DOCKER} systemctl --no-pager status docker
   - ${DOCKER} docker --version
   - ${DOCKER} docker-compose --version
   - ${DOCKER} docker-machine --version
