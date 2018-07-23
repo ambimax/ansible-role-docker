@@ -3,8 +3,9 @@
   remote_user: root
 
   vars:
+    docker_install: true
     docker_compose_install: true
     docker_machine_install: true
 
   roles:
-    - ansible-role-docker
+    - role_under_test
