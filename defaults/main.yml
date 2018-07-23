@@ -5,12 +5,12 @@ docker_dependencies:
   - apt-transport-https
   - ca-certificates
 
-docker_apt_package: 'docker-engine'
+docker_apt_package: 'docker-ce'
 
 docker_gpg_keyserver: 'hkp://p80.pool.sks-keyservers.net:80'
-docker_gpg_id: '58118E89F3A912897C070ADBF76221572C52609D'
+docker_gpg_id: '7EA0A9C3F273FCD8'
 
-docker_repository_url: 'deb https://apt.dockerproject.org/repo {{ ansible_distribution|lower }}-{{ ansible_distribution_release|lower }} main'
+docker_repository_url: 'deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release|lower }} stable'
 
 docker_compose_install: false
 docker_compose_version: '1.8.0-rc2'

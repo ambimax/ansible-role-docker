@@ -1,10 +1,9 @@
 ---
 
-- name: 'Install docker-compose'
-  shell:  'curl -L {{ docker_compose_url }} > {{ docker_compose_bin }}'
-  args:
-    creates: '{{ docker_compose_bin }}'
-  tags: ['skip_ansible_lint']
+- name: 'Install docker-machine'
+  get_url:
+    url: '{{ docker_compose_url }}'
+    dest: '{{ docker_compose_bin }}'
 
 - name: 'Make docker-compose executable'
   file:

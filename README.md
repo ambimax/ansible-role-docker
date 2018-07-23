@@ -1,12 +1,12 @@
 # Ansible Role: Install docker
 
-[![Build Status](https://travis-ci.org/tschifftner/ansible-role-docker.svg)](https://travis-ci.org/tschifftner/ansible-role-docker)
+[![Build Status](https://travis-ci.org/tschifftner/ansible-role-docker.svg?branch=master)](https://travis-ci.org/tschifftner/ansible-role-docker)
 
 Installs docker on Debian/Ubuntu linux servers.
 
 ## Requirements
 
-ansible 2.1+
+None
 
 ## Role Variables
 
@@ -62,9 +62,15 @@ docker_machine_version: 'v0.8.0-rc2'
 ```
 
 ## Supported OS
-Ansible          | Debian Jessie    | Ubuntu 14.04
-:--------------: | :--------------: | :-------------:
-2.1              | Yes              | Yes
+
+ - Debian 9 (Stretch)
+ - Debian 8 (Jessie)
+ - Ubuntu 18.04 (Bionic Beaver)
+ - Ubuntu 16.04 (Xenial Xerus)
+ 
+## Required ansible version
+
+Ansible 2.5+
 
 ## License
 
