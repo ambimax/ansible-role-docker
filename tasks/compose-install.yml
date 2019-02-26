@@ -1,9 +1,26 @@
 ---
 
+- name: 'Get current version'
+  shell: docker-compose --version | sed s/,// | cut -f3 -d ' '
+  register: current_docker_compose_version
+  ignore_errors: true
+  changed_when: false
+  tags: ['always', 'skip_ansible_lint'] #skip ansible lint as shell is required here
+
+- name: Set fact current_docker_compose_version
+  set_fact:
+    current_docker_compose_version: '{{ current_docker_compose_version.stdout }}'
+  tags: ['always']
+
+- name: Show docker_compose versions
+  debug:
+    msg: 'Current: {{ current_docker_compose_version }}, Requested: {{ docker_compose_version }} '
+
 - name: 'Install docker-machine'
   get_url:
     url: '{{ docker_compose_url }}'
     dest: '{{ docker_compose_bin }}'
+    force: "{{ true if current_docker_compose_version != docker_compose_version else false }}"
 
 - name: 'Make docker-compose executable'
   file:

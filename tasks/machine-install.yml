@@ -1,9 +1,26 @@
 ---
 
+- name: 'Get current version'
+  shell: docker-machine --version | sed s/,// | cut -f3 -d ' '
+  register: current_docker_machine_version
+  ignore_errors: true
+  changed_when: false
+  tags: ['always', 'skip_ansible_lint'] #skip ansible lint as shell is required here
+
+- name: Set fact current_docker_machine_version
+  set_fact:
+    current_docker_machine_version: '{{ current_docker_machine_version.stdout }}'
+  tags: ['always']
+
+- name: Show docker_machine versions
+  debug:
+    msg: 'Current: {{ current_docker_machine_version }}, Requested: {{ docker_machine_version }} '
+
 - name: 'Install docker-machine'
   get_url:
     url: '{{ docker_machine_url }}'
     dest: '{{ docker_machine_bin }}'
+    force: "{{ true if current_docker_machine_version != docker_machine_version else false }}"
 
 - name: 'Make docker-machine executable'
   file:
