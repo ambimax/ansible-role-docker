@@ -1,5 +1,6 @@
 ---
-- include: install.yml
+- name: Install docker
+  include: install.yml
   when: docker_install == true
   tags: ['docker-install']
 

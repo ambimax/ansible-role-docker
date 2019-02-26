@@ -4,7 +4,6 @@ docker_install: false
 docker_dependencies:
   - apt-transport-https
   - ca-certificates
-  - python-dockerpty
 
 docker_apt_package: 'docker-ce'
 
