@@ -1,5 +1,6 @@
 ---
 docker_install: false
+docker_start: '{{ docker_install }}'
 
 docker_dependencies:
   - apt-transport-https
