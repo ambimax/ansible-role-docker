@@ -23,18 +23,15 @@
     pkg: '{{ docker_apt_package }}'
     state: present
 
-- name: 'Install python lib for ansible to manage docker (newer systems)'
+- name: Remove old ansible docker module
   apt:
-    pkg: python-dockerpty
-    state: present
-  when: >
-    (ansible_distribution == 'Debian' and ansible_distribution_version|int >= 9) or
-    (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int >= 18)
+    pkg: '{{ item }}'
+    state: absent
+  with_items:
+    - python-dockerpty
+    - python-docker
 
-- name: 'Install python lib for ansible to manage docker (older systems)'
-  apt:
-    pkg: python-docker
+- name: Install ansible docker module
+  pip:
+    name: docker
     state: present
-  when: >
-    (ansible_distribution == 'Debian' and ansible_distribution_version|int < 9) or
-    (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int < 18)
