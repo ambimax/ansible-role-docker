@@ -25,13 +25,20 @@
 
 - name: Remove old ansible docker module
   apt:
-    pkg: '{{ item }}'
+    pkg:
+      - python-dockerpty
+      - python-docker
     state: absent
-  with_items:
-    - python-dockerpty
-    - python-docker
+  when: not (ansible_distribution == 'Debian' and ansible_distribution_version|int <= 8)
 
 - name: Install ansible docker module
   pip:
     name: docker
     state: present
+  when: not (ansible_distribution == 'Debian' and ansible_distribution_version|int <= 8)
+
+- name: Install old ansible docker module on debian 8
+  apt:
+    pkg: python-docker
+    state: absent
+  when: ansible_distribution == 'Debian' and ansible_distribution_version|int <= 8
