@@ -16,15 +16,12 @@
   debug:
     msg: 'Current: {{ current_docker_compose_version }}, Requested: {{ docker_compose_version }} '
 
-- name: 'Install docker-machine'
+- name: 'Install docker-compose'
   get_url:
     url: '{{ docker_compose_url }}'
     dest: '{{ docker_compose_bin }}'
+    sha256sum: '{{ docker_compose_checksum }}'
     force: "{{ true if current_docker_compose_version != docker_compose_version else false }}"
-
-- name: 'Make docker-compose executable'
-  file:
-    path: '{{ docker_compose_bin }}'
     mode: '0755'
     owner: 'root'
     group: 'root'
