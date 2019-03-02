@@ -33,5 +33,7 @@
 
 - name: Install ansible docker module
   pip:
-    name: docker
-    state: present
+    name:
+      - pip
+      - docker
+    state: latest
