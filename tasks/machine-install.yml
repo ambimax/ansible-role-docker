@@ -20,11 +20,8 @@
   get_url:
     url: '{{ docker_machine_url }}'
     dest: '{{ docker_machine_bin }}'
+    sha256sum: '{{ docker_machine_checksum }}'
     force: "{{ true if current_docker_machine_version != docker_machine_version else false }}"
-
-- name: 'Make docker-machine executable'
-  file:
-    path: '{{ docker_machine_bin }}'
     mode: '0755'
     owner: 'root'
     group: 'root'
