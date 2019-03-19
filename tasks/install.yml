@@ -1,4 +1,11 @@
 ---
+- name: Set docker uid
+  group:
+    name: docker
+    state: present
+    gid: '{{ docker_group_id }}'
+    system: true
+  when: docker_group_id
 
 - name: Install dependencies
   apt:

@@ -1,0 +1,7 @@
+---
+
+- name: init docker swarm
+  docker_swarm:
+    state: present
+    advertise_addr: '{{ docker_swarm_advertise_addr }}'
+  when: docker_swarm_init
