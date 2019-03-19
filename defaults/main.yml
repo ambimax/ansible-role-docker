@@ -25,3 +25,7 @@ docker_machine_version: 'v0.16.1'
 docker_machine_checksum: '44a008c14549156222b314b1448c22ef255b446419fcf96570f3f288dff318a9'
 docker_machine_url: 'https://github.com/docker/machine/releases/download/{{ docker_machine_version }}/docker-machine-Linux-{{ ansible_architecture }}'
 docker_machine_bin: '/usr/local/bin/docker-machine'
+
+docker_group_id: false
+docker_swarm_init: false
+docker_swarm_advertise_addr: ''

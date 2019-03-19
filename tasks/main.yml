@@ -23,3 +23,7 @@
     enabled: yes
   changed_when: false # fix idempotence
   when: docker_start == true
+
+- name: Handle swarm init
+  include: swarm.yml
+  tags: ['docker-swarm']
