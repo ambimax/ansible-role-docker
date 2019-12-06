@@ -1,6 +1,6 @@
 # Ansible Role: Install docker
 
-[![Build Status](https://travis-ci.org/tschifftner/ansible-role-docker.svg?branch=master)](https://travis-ci.org/tschifftner/ansible-role-docker)
+[![Build Status](https://travis-ci.org/ambimax/ansible-role-docker.svg?branch=master)](https://travis-ci.org/tschifftner/ansible-role-docker)
 
 Installs docker on Debian/Ubuntu linux servers.
 
