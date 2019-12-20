@@ -34,14 +34,14 @@ script:
   - ${DOCKER} docker-machine --version
 
   # Ensure docker is started
-  - ${DOCKER} systemctl --no-pager status docker | grep 'docker.service; enabled'
+  - ${DOCKER} systemctl --no-pager status docker | grep 'docker.service'
+  - ${DOCKER} systemctl --no-pager status docker | grep 'enabled'
   - ${DOCKER} systemctl --no-pager status docker | grep 'running'
 
 after_failure:
   - ${DOCKER} docker --version
   - ${DOCKER} docker-compose --version
   - ${DOCKER} docker-machine --version
-  - ${DOCKER} systemctl --no-pager status docker
 
 
 notifications:
