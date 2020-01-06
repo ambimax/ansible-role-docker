@@ -5,7 +5,7 @@ docker_start: '{{ docker_install }}'
 docker_dependencies:
   - apt-transport-https
   - ca-certificates
-  - python-pip
+  - python3-pip
 
 docker_apt_package: 'docker-ce'
 
