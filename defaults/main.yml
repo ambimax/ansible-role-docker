@@ -30,6 +30,6 @@ docker_group_id: false
 docker_swarm_init: false
 docker_swarm_advertise_addr: ''
 
-docker_registry:
-docker_user:
-docker_password:
+docker_registry: ""
+docker_user: ""
+docker_password: ""
