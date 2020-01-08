@@ -27,3 +27,7 @@
 - name: Handle swarm init
   include: swarm.yml
   tags: ['docker-swarm']
+
+- include: registry-login.yml
+  when: docker_user | length > 0
+  tags: ['docker-registry-login']
