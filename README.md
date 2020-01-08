@@ -25,6 +25,10 @@ docker_gpg_keyserver: 'hkp://p80.pool.sks-keyservers.net:80'
 docker_gpg_id: '58118E89F3A912897C070ADBF76221572C52609D'
 
 docker_repository_url: 'deb https://apt.dockerproject.org/repo debian-{{ ansible_distribution_release|lower }} main'
+
+docker_registry:
+docker_user:
+docker_password:
 ```
 
 ## Dependencies
